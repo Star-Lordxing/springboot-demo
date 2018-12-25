@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.controller.HelloWorldController;
+import com.example.demo.dao.UserDao;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +29,9 @@ public class DemoApplicationTests {
 	@Resource
 	private DataSource dataSource;
 
+	@Resource
+	private UserDao userDao;
+
 	@Before
 	public void setUp(){
 		mvc = MockMvcBuilders.standaloneSetup(new HelloWorldController()).build();
@@ -43,6 +47,11 @@ public class DemoApplicationTests {
 	@Test
 	public void testConnection() throws Exception {
 		System.out.println(this.dataSource);
+	}
+
+	@Test
+	public void getAllUser(){
+		System.out.println(userDao.findAll());
 	}
 }
 
