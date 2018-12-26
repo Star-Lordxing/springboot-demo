@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.Property.BaseMsg;
 import com.example.demo.Property.Message;
+import com.example.demo.service.UserService;
 import test.SmsConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.Resource;
 import java.util.Properties;
 
 @Controller
@@ -22,6 +24,8 @@ public class HelloWorldController {
     private Message message;
     @Autowired
     private SmsConfig smsConfig;
+    @Autowired
+    private UserService userService;
 
     @RequestMapping("/getUser")
     public String getUser(@RequestParam("uid")Integer id, Model model) {
@@ -57,5 +61,11 @@ public class HelloWorldController {
     public String smsConfig() {
         System.out.println(smsConfig.getCode());
         return "message:"+ smsConfig.getCode();
+    }
+
+    @RequestMapping("/getAllUser")
+    @ResponseBody
+    public Object getAllUser() {
+        return userService.findAll();
     }
 }

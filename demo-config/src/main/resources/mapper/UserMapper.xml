@@ -5,4 +5,8 @@
     <select id="findAll" resultType="UserPO">
         SELECT * FROM user;
     </select>
+
+    <insert id="save" parameterType="UserPO">
+        insert  into user(name,age) value ( #{name},#{age});
+    </insert>
 </mapper>

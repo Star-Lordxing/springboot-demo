@@ -2,9 +2,11 @@ package com.example.demo;
 
 import com.example.demo.controller.HelloWorldController;
 import com.example.demo.dao.UserDao;
+import com.example.demo.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.boot.test.autoconfigure.web.client.RestClientTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -28,9 +30,10 @@ public class DemoApplicationTests {
 	private MockMvc mvc;
 	@Resource
 	private DataSource dataSource;
-
 	@Resource
 	private UserDao userDao;
+	@Resource
+	private UserService userService;
 
 	@Before
 	public void setUp(){
@@ -52,6 +55,11 @@ public class DemoApplicationTests {
 	@Test
 	public void getAllUser(){
 		System.out.println(userDao.findAll());
+	}
+
+	@Test
+	public void addUser(){
+		userService.addUser();
 	}
 }
 

@@ -13,9 +13,10 @@ spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
     driver-class-name: org.gjt.mm.mysql.Driver     # 配置MySQL的驱动程序类
-    url: jdbc:mysql://47.52.199.51:3306/test        # 数据库连接地址
+    url: jdbc:mysql://47.52.199.51:3306/test?useUnicode=true&amp;characterEncoding=utf8        # 数据库连接地址
     username: test                                  # 数据库用户名
     password: Zhuxing520@                           # 数据库连接密码
+    #filters: stat,wall,log4j
     dbcp2:                                          # 进行数据库连接池的配置
       min-idle: 5                                   # 数据库连接池的最小维持连接数
       initial-size: 5                               # 初始化提供的连接数
@@ -26,13 +27,6 @@ mybatis:
   config-location: classpath:mapper/mybatis.cfg.xml    # mybatis配置文件所在路径
   type-aliases-package: com.example.demo.po            # 定义所有操作类的别名所在包
   mapper-locations:  classpath:mapper/*Mapper.xml    # 所有的mapper映射文件
-
-#pagehelper分页插件
-pagehelper:
-  helperDialect: mysql
-  reasonable: true
-  supportMethodsArguments: true
-  params: count=countSql
 
 server:
   servlet:
