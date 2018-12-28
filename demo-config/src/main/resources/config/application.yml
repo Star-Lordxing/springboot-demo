@@ -16,23 +16,40 @@ spring:
     url: jdbc:mysql://47.52.199.51:3306/test?useUnicode=true&amp;characterEncoding=utf8        # 数据库连接地址
     username: test                                  # 数据库用户名
     password: Zhuxing520@                           # 数据库连接密码
-    #filters: stat,wall,log4j
+    filters:  wall,stat
     dbcp2:                                          # 进行数据库连接池的配置
       min-idle: 5                                   # 数据库连接池的最小维持连接数
       initial-size: 5                               # 初始化提供的连接数
       max-total: 5                                  # 最大的连接数
       max-wait-millis: 200                          # 等待连接获取的最大超时时间
 
+  kafka:     # 指定kafka 代理地址，可以多个
+      bootstrap-servers: 47.52.199.51:9092
+      template:    # 指定默认topic id
+        default-topic: producer
+      listener:   # 指定listener 容器中的线程数，用于提高并发量
+        concurrency: 5
+      consumer:
+        group-id: myGroup # 指定默认消费者group id
+        client-id: 200
+        max-poll-records: 200
+        enable-auto-commit: false
+        auto-offset-reset: earliest # 最早未被消费的offset
+        fetch-min-size: 10
+      producer:
+        batch-size: 1000 # 每次批量发送消息的数量
+        retries: 3
+        client-id: 200
+
+
+
+
+
 mybatis:
   config-location: classpath:mapper/mybatis.cfg.xml    # mybatis配置文件所在路径
   type-aliases-package: com.example.demo.po            # 定义所有操作类的别名所在包
   mapper-locations:  classpath:mapper/*Mapper.xml    # 所有的mapper映射文件
 
-server:
-  servlet:
-    context-path: /springboot-demo
-
- #include: devMsg,message
 ---
 #开发环境配置
 spring:
