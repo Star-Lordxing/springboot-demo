@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.client.RestClientTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -61,5 +63,18 @@ public class DemoApplicationTests {
 	public void addUser(){
 		userService.addUser();
 	}
+
+	@Resource
+	private JavaMailSender javaMailSender ;
+	@Test
+	public void testSendMail() {
+		SimpleMailMessage message = new SimpleMailMessage() ;    // 要发送的消息内容
+		message.setFrom("18842688753@163.com");
+		message.setTo("1065754909@qq.com");
+		message.setSubject("测试邮件）");
+		message.setText("好好学习，天天向上");
+		this.javaMailSender.send(message);
+	}
+
 }
 

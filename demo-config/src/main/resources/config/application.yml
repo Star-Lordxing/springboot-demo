@@ -41,6 +41,16 @@ spring:
         retries: 3
         client-id: 200
 
+  mail:
+    host: smtp.163.com
+    username: 18842688753@163.com
+    password: zhuxing520
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+    port: 25
+
 
 
 
