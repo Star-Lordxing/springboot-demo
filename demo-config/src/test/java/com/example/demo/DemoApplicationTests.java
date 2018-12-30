@@ -2,12 +2,15 @@ package com.example.demo;
 
 import com.example.demo.controller.HelloWorldController;
 import com.example.demo.dao.UserDao;
+import com.example.demo.po.UserPO;
 import com.example.demo.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.web.client.RestClientTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -36,6 +39,7 @@ public class DemoApplicationTests {
 	private UserDao userDao;
 	@Resource
 	private UserService userService;
+
 
 	@Before
 	public void setUp(){

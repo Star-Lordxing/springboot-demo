@@ -21,17 +21,13 @@ public class UserService {
 
     @Transactional
     public void addUser(){
-        UserPO userPO1 = new UserPO();
-        userPO1.setName("王小飞");
-        userPO1.setAge(24);
+        UserPO userPO1 = new UserPO("王小飞",24);
         userDao.save(userPO1);
         addUser1();
     }
 
     public void addUser1(){
-        UserPO userPO1 = new UserPO();
-        userPO1.setName("王小飞1");
-        userPO1.setAge(24);
+        UserPO userPO1 = new UserPO("王小飞1",24);
         userDao.save(userPO1);
         //throw new RuntimeException();
     }

@@ -1,27 +1,11 @@
-package com.example.demo.po;
+package com.example.demo.bean;
 
 import java.io.Serializable;
 
-public class UserPO implements Serializable {
-
-
-
+public class User implements Serializable {
     private Long uid;
     private String name;
     private Integer age;
-
-    public UserPO(){}
-
-    public UserPO(Long uid, String name, Integer age) {
-        this.uid = uid;
-        this.name = name;
-        this.age = age;
-    }
-
-    public UserPO(String name, Integer age) {
-        this.name = name;
-        this.age = age;
-    }
 
     public Long getUid() {
         return uid;
@@ -49,7 +33,7 @@ public class UserPO implements Serializable {
 
     @Override
     public String toString() {
-        return "UserPO{" +
+        return "User{" +
                 "uid=" + uid +
                 ", name='" + name + '\'' +
                 ", age=" + age +

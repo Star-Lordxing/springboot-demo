@@ -51,8 +51,29 @@ spring:
       mail.smtp.starttls.required: true
     port: 25
 
-
-
+  redis:
+    host: 47.52.199.51
+    port: 6379
+    password: 123456
+    timeout: 1000
+    database: 0
+    jedis:
+      pool:
+        max-active: 1
+        max-idle: 8
+        min-idle: 0
+        max-wait: 100
+  redis-two:
+    host: 47.52.199.51
+    port: 6379
+    password: 123456
+    timeout: 1000
+    database: 0
+    pool:
+      max-active: 10
+      max-idle: 8
+      min-idle: 2
+      max-wait: 100
 
 
 mybatis:
