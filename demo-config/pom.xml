@@ -116,7 +116,13 @@
 			<version>2.7.0</version>
 		</dependency>
 
-	</dependencies>
+		<dependency>
+			<groupId>com.example</groupId>
+			<artifactId>generateCode-starter</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		</dependencies>
 
 	<build>
 		<plugins>

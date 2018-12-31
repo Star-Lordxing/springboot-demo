@@ -8,6 +8,7 @@
       <list>
         <option value="$PROJECT_DIR$/demo/pom.xml" />
         <option value="$PROJECT_DIR$/demo-config/pom.xml" />
+        <option value="$PROJECT_DIR$/generateCode-starter/pom.xml" />
       </list>
     </option>
   </component>

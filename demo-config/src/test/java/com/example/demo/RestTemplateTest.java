@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.starter.demo.GeneraterIdService;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpRequest;
 import org.apache.http.client.ClientProtocolException;
@@ -25,6 +26,8 @@ import java.io.IOException;
 @SpringBootTest
 @WebAppConfiguration
 public class RestTemplateTest {
+    @Autowired
+    GeneraterIdService generaterIdService;
 
     private CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
 
@@ -34,6 +37,11 @@ public class RestTemplateTest {
         CloseableHttpResponse response = closeableHttpClient.execute(get);
         String str =  EntityUtils.toString(response.getEntity(), "utf-8");
         System.out.println(str);
+    }
+
+    @Test
+    public void TestGeneraterId(){
+        System.out.println(generaterIdService.generaterId());
     }
 
 }
