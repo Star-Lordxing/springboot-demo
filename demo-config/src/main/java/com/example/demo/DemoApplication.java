@@ -9,7 +9,7 @@ import test.SmsConfig;
 
 @SpringBootApplication
 @Import({SmsConfig.class})
-@MapperScan("com.example.*.dao")
+//@MapperScan("com.example.demo.dao")
 // @EnableScheduling    // 启用间隔调度
 public class DemoApplication {
 	public static void main(String[] args) {

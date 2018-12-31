@@ -33,7 +33,7 @@ public class DruidConfig {
         return filterRegistrationBean ;
     }
     @Bean
-    @ConfigurationProperties(prefix = "kafka.datasource")
+    @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource druidDataSource() {
         return new DruidDataSource();
     }

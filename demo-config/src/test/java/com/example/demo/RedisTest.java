@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import com.example.demo.bean.User;
 import com.example.demo.po.UserPO;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -79,13 +78,13 @@ public class RedisTest {
 
     @Test
     public void testRedis1(){
-        User user = new User();
+        UserPO user = new UserPO();
         user.setAge(11);
         user.setName("我是小王1");
         redisTemplate.opsForValue().set("user37",user);
         System.out.println(redisTemplate.getValueSerializer());
         System.out.println(redisTemplate.getKeySerializer());
-        User result = (User) redisTemplate.opsForValue().get("user37");
+        UserPO result = (UserPO) redisTemplate.opsForValue().get("user37");
         System.out.println(result);
     }
 

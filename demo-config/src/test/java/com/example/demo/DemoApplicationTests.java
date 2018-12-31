@@ -55,7 +55,7 @@ public class DemoApplicationTests {
 
 	@Test
 	public void testConnection() throws Exception {
-		System.out.println(this.dataSource);
+		System.out.println(this.dataSource.getConnection());
 	}
 
 	@Test

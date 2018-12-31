@@ -1,10 +1,17 @@
+
 package com.example.demo.bean;
+
+import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
+
 public class User implements Serializable {
+    @ApiModelProperty(value = "用户id" ,example = "11" ,required=false)
     private Long uid;
+    @ApiModelProperty(value = "用户姓名",example = "小明",required=false)
     private String name;
+    @ApiModelProperty(value = "用户年龄",example = "25",required=false)
     private Integer age;
 
     public Long getUid() {
@@ -40,3 +47,4 @@ public class User implements Serializable {
                 '}';
     }
 }
+
