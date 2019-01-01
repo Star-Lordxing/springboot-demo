@@ -4,11 +4,14 @@ import com.example.demo.controller.HelloWorldController;
 import com.example.demo.dao.UserDao;
 import com.example.demo.po.UserPO;
 import com.example.demo.service.UserService;
+import com.github.pagehelper.PageHelper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.client.RestClientTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.MediaType;
@@ -19,6 +22,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.thymeleaf.spring5.context.SpringContextUtils;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -39,6 +43,8 @@ public class DemoApplicationTests {
 	private UserDao userDao;
 	@Resource
 	private UserService userService;
+	@Autowired
+	ApplicationContext applicationContext;
 
 
 	@Before
@@ -64,8 +70,16 @@ public class DemoApplicationTests {
 	}
 
 	@Test
+	public void getAllUserByPage(){
+		PageHelper.startPage(1,2);
+		System.out.println(userDao.findAll());
+	}
+
+	@Test
 	public void addUser(){
-		userService.addUser();
+		RedisTemplate redisTemplate1 = (RedisTemplate)applicationContext.getBean("redisTemplate");
+		System.out.println(redisTemplate1.opsForValue().get("xing"));
+		//userService.addUser();
 	}
 
 	@Resource

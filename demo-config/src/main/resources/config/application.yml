@@ -100,7 +100,12 @@ http.staleConnectionCheckEnabled: true
 #可用空闲连接过期时间,重用空闲连接时会先检查是否空闲时间超过这个时间，如果超过，释放socket重新建立
 http.validateAfterInactivity: 3000000
 
-
+pagehelper:
+    helperDialect: mysql
+    reasonable: true #开启优化，<1页返回第一页
+    supportMethodsArguments: true #是否支持接口参数来传递分页参数，默认false
+    pageSizeZero: false #pageSize=0 返回所有
+    params: count=countSql
 
 
 
