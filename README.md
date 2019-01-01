@@ -5,9 +5,9 @@
 
 springboot系列十五、springboot集成PageHelper
 
-springboot系列十四、自定义实现starter 小人物的奋斗
+springboot系列十四、自定义实现starter
 
-springboot系列十三、springboot集成swaggerUI 小人物的奋斗
+springboot系列十三、springboot集成swaggerUI
 
 springboot系列十二、springboot集成RestTemplate及常见用法
 
